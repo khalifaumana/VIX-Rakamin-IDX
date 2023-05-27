@@ -85,3 +85,17 @@ def getNumericalCategorical(x):
     catCols = list(set(x.columns) - set(numCols))
 
     return numCols, catCols
+
+def printValueCounts(x, cols=[]):
+        selectedColumn = cols
+        print(selectedColumn)
+
+        if selectedColumn == []:
+                print('using all columns')
+                selectedColumn = x.columns
+                print(selectedColumn)
+
+        for c in selectedColumn:
+                print('------',c,'------')
+                print(c,'containing',str(x[c].nunique()),'unique values')
+                print(x[c].value_counts())
